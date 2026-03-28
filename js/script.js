@@ -1,4 +1,4 @@
-fetch('pets.json')
+fetch('./pets.json')
 .then(response => response.json())
 .then(data => {
     let container = document.getElementById("pets-container");
@@ -16,4 +16,5 @@ fetch('pets.json')
 
         container.appendChild(card);
     });
-});
+})
+.catch(error => console.error("Error loading JSON:", error));
