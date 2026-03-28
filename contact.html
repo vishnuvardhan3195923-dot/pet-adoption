@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Contact</title>
+<title>Adopt Pet</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,13 +11,14 @@
 <h1>Adopt Pet</h1>
 
 <form id="form">
-<input id="name" placeholder="Name" required>
-<input id="email" placeholder="Email" required>
+<input id="name" placeholder="Your Name" required>
 <input id="pet" readonly>
-<button>Send Request</button>
+<textarea id="message" placeholder="Write your message..." required></textarea>
+<button type="submit">Submit Request</button>
 </form>
 
 <script>
+// GET SELECTED PET
 let pet = JSON.parse(localStorage.getItem("selectedPet"));
 if(pet){
 document.getElementById("pet").value = pet.name;
@@ -27,21 +28,17 @@ document.getElementById("form").onsubmit = function(e){
 e.preventDefault();
 
 let name = document.getElementById("name").value;
-let email = document.getElementById("email").value;
 let petName = document.getElementById("pet").value;
+let message = document.getElementById("message").value;
 
-// save history
+// SAVE ORDER
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
-orders.push({name,email,petName});
+orders.push({name, petName, message});
 localStorage.setItem("orders", JSON.stringify(orders));
 
-// open mail
-window.location.href =
-`mailto:vishnuvardhan3195923@gmail.com?subject=Pet Adoption&body=Pet: ${petName}%0AName: ${name}%0AEmail: ${email}`;
-
-// success page
-setTimeout(()=>{window.location.href="success.html"},1000);
-}
+// SUCCESS PAGE
+window.location.href = "success.html";
+};
 </script>
 
 </body>
