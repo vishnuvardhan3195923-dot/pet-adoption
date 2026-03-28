@@ -6,6 +6,12 @@
 </head>
 <body>
 
+<div id="page" style="
+opacity:0;
+transform:scale(0.95);
+transition:0.5s;
+">
+
 <nav>
 <h2>Pet Adoption 🐾</h2>
 
@@ -16,37 +22,34 @@
 </ul>
 </nav>
 
-<!-- MAIN CARD -->
 <div style="
-max-width:700px;
-margin:60px auto;
+max-width:600px;
+margin:50px auto;
 ">
 
 <div style="
 background:white;
 border-radius:18px;
 overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,0.06);
-transition:0.3s;
+box-shadow:0 12px 30px rgba(0,0,0,0.06);
 ">
 
 <img id="petImage" style="
 width:100%;
-height:260px;
-object-fit:cover;
+height:auto;
+max-height:300px;
+object-fit:contain;
+background:#f1f5f9;
 ">
 
-<div style="
-padding:25px;
-text-align:center;
-">
+<div style="padding:22px; text-align:center;">
 
-<h2 id="petName" style="font-weight:600;"></h2>
+<h2 id="petName"></h2>
 
-<p id="petBreed" style="color:#64748b; margin-top:6px;"></p>
+<p id="petBreed" style="color:#64748b;"></p>
 <p id="petAge" style="color:#64748b;"></p>
 
-<button id="adoptBtn" style="margin-top:18px;">
+<button id="adoptBtn">
 Adopt 💛
 </button>
 
@@ -56,7 +59,17 @@ Adopt 💛
 
 </div>
 
+</div>
+
 <script>
+
+// page animation
+window.onload = () => {
+let page = document.getElementById("page");
+page.style.opacity = "1";
+page.style.transform = "scale(1)";
+};
+
 let pet = JSON.parse(localStorage.getItem("selectedPet"));
 
 if(pet){
@@ -69,6 +82,7 @@ document.getElementById("adoptBtn").onclick = function(){
 window.location.href = "contact.html";
 };
 }
+
 </script>
 
 </body>
