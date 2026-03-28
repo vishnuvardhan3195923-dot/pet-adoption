@@ -1,40 +1,89 @@
+Contact
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Contact</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adopt Pet</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav><h2>Pet Adoption 🐾</h2></nav>
+<nav>
+<h2>Pet Adoption 🐾</h2>
+</nav>
 
-<h1 style="text-align:center;">Adopt Pet 💌</h1>
+<h1 style="margin-top:60px;">💌 Adopt Your Pet</h1>
 
-<form id="form">
+<div style="
+display:flex;
+justify-content:center;
+align-items:center;
+">
 
-<input id="name" placeholder="Your Name" required>
-<input id="pet" readonly>
-<textarea id="msg" placeholder="Your message"></textarea>
+<form id="form" style="
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.08);
+max-width:450px;
+width:100%;
+margin-top:30px;
+">
 
-<button>Submit</button>
+<input 
+id="name" 
+placeholder="Your Name" 
+required 
+style="padding:14px; border-radius:12px; width:100%; margin-bottom:15px;"
+>
+
+<input 
+id="pet" 
+readonly 
+style="padding:14px; border-radius:12px; width:100%; margin-bottom:15px;"
+>
+
+<textarea 
+id="message" 
+placeholder="Why do you want to adopt this pet?" 
+required 
+style="padding:14px; border-radius:12px; width:100%; min-height:120px; margin-bottom:20px;"
+></textarea>
+
+<button type="submit" style="width:100%;">
+Submit Request 🚀
+</button>
 
 </form>
 
-<script>
-let p=JSON.parse(localStorage.getItem("selectedPet"));
-if(p){document.getElementById("pet").value=p.name;}
+</div>
 
-document.getElementById("form").onsubmit=e=>{
+<script>
+let pet = JSON.parse(localStorage.getItem("selectedPet"));
+if(pet){
+document.getElementById("pet").value = pet.name;
+}
+
+document.getElementById("form").onsubmit = function(e){
 e.preventDefault();
 
-let name=document.getElementById("name").value;
-let pet=document.getElementById("pet").value;
-let msg=document.getElementById("msg").value;
+let name = document.getElementById("name").value;
+let petName = document.getElementById("pet").value;
+let message = document.getElementById("message").value;
 
-window.location.href=`mailto:vishnuvardhan3195923@gmail.com?subject=Adopt&body=${name} wants ${pet} - ${msg}`;
+// save locally
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+orders.push({name, petName, message});
+localStorage.setItem("orders", JSON.stringify(orders));
 
-setTimeout(()=>location.href="success.html",500);
+// open email
+window.location.href =
+`mailto:vishnuvardhan3195923@gmail.com?subject=Pet Adoption Request&body=Name: ${name}%0APet: ${petName}%0AMessage: ${message}`;
+
+// success page
+setTimeout(()=>{
+window.location.href = "success.html";
+},800);
 };
 </script>
 
