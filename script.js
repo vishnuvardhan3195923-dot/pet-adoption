@@ -17,7 +17,7 @@ card.innerHTML = `
 `;
 
 card.onclick = function() {
-goToDetails(card, pet); // ✅ FIXED
+goToDetails(card, pet); // ✅ FIXED HERE
 };
 
 container.appendChild(card);
