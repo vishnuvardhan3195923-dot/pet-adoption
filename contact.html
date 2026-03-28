@@ -33,10 +33,17 @@ document.getElementById("contactForm").onsubmit = function(e){
     let email = document.getElementById("email").value;
     let petName = document.getElementById("pet").value;
 
-    // 👇 ADD THIS LINE
-    alert("Opening your mail app to send request 🚀");
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push({name, email, petName});
+    localStorage.setItem("orders", JSON.stringify(orders));
 
-    window.location.href = `mailto:vishnuvardhan3195923@gmail.com?subject=Pet Adoption Request&body=Hello,%0A%0AI would like to adopt:%0APet: ${petName}%0AName: ${name}%0AEmail: ${email}`;
+    alert("Opening mail app 🚀");
+
+    window.location.href = `mailto:yourmail@gmail.com?subject=Pet Adoption&body=Pet: ${petName}%0AName: ${name}%0AEmail: ${email}`;
+
+    setTimeout(()=>{
+        window.location.href = "success.html";
+    },1000);
 };
 </script>
 
