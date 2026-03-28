@@ -11,8 +11,8 @@
 
 <ul>
 <li><a href="index.html">Home</a></li>
-<li><a href="pets.html">Pets</a></li>
-<li><a href="orders.html">My Requests</a></li>
+<li><a href="pets.html">Pets 🐶</a></li>
+<li><a href="orders.html">Requests 📦</a></li>
 </ul>
 
 <div class="user-area">
@@ -36,10 +36,10 @@
 let user = localStorage.getItem("user");
 
 if(user){
-document.getElementById("userDisplay").innerText = "Hello, " + user;
+document.getElementById("userDisplay").innerText = "👋 Hello, " + user;
 document.getElementById("loginBtn").style.display = "none";
 } else {
-document.getElementById("userDisplay").innerText = "";
+document.getElementById("userDisplay").innerText = "👋 Welcome";
 document.getElementById("logoutBtn").style.display = "none";
 }
 
