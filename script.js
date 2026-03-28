@@ -17,18 +17,17 @@ card.innerHTML = `
 `;
 
 card.onclick = function() {
-goToDetails(card, p);
+goToDetails(card, pet); // ✅ FIXED
 };
 
 container.appendChild(card);
 });
 });
+
 function goToDetails(card, pet){
 
-// store selected pet
 localStorage.setItem("selectedPet", JSON.stringify(pet));
 
-// clone card
 let clone = card.cloneNode(true);
 let rect = card.getBoundingClientRect();
 
@@ -41,21 +40,17 @@ clone.style.transition = "all 0.5s ease";
 
 document.body.appendChild(clone);
 
-// hide original
 card.style.opacity = "0";
 
-// animate
 setTimeout(()=>{
 clone.style.top = "50%";
 clone.style.left = "50%";
 clone.style.transform = "translate(-50%, -50%) scale(1.2)";
 },10);
 
-// fade page
 document.body.style.transition = "0.4s";
 document.body.style.opacity = "0.7";
 
-// go next page
 setTimeout(()=>{
 window.location.href = "pet-details.html";
 },450);
