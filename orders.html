@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Adoptions</title>
+    <title>My Requests</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +16,6 @@
 
 <script>
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
 let container = document.getElementById("orders");
 
 orders.forEach(order => {
@@ -26,8 +25,8 @@ orders.forEach(order => {
     card.innerHTML = `
         <div class="card-content">
             <h3>${order.petName}</h3>
-            <p>Name: ${order.name}</p>
-            <p>Email: ${order.email}</p>
+            <p>${order.name}</p>
+            <p>${order.email}</p>
         </div>
     `;
 
