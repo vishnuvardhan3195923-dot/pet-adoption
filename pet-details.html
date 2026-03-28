@@ -1,26 +1,62 @@
+Pet details 
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>Pet Details</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav><h2>Pet Adoption 🐾</h2></nav>
+<div id="page" style="
+opacity:0;
+transform:scale(0.95);
+transition:0.5s;
+">
 
-<div style="max-width:600px;margin:40px auto;">
+<nav>
+<h2>Pet Adoption 🐾</h2>
 
-<div class="card">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="pets.html">Pets 🐶</a></li>
+<li><a href="orders.html">Requests 📦</a></li>
+</ul>
+</nav>
 
-<img id="img">
+<div style="
+max-width:600px;
+margin:50px auto;
+">
 
-<div class="card-content" style="text-align:center;">
-<h2 id="name"></h2>
-<p id="breed"></p>
-<p id="age"></p>
+<div style="
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 12px 30px rgba(0,0,0,0.06);
+">
 
-<button onclick="go()">Adopt 💛</button>
+<img id="petImage" style="
+width:100%;
+height:auto;
+max-height:300px;
+object-fit:contain;
+background:#f1f5f9;
+">
+
+<div style="padding:22px; text-align:center;">
+
+<h2 id="petName"></h2>
+
+<p id="petBreed" style="color:#64748b;"></p>
+<p id="petAge" style="color:#64748b;"></p>
+
+<button id="adoptBtn">
+Adopt 💛
+</button>
+
+</div>
+
 </div>
 
 </div>
@@ -28,16 +64,27 @@
 </div>
 
 <script>
-let p=JSON.parse(localStorage.getItem("selectedPet"));
 
-document.getElementById("img").src=p.image;
-document.getElementById("name").innerText=p.name;
-document.getElementById("breed").innerText=p.breed;
-document.getElementById("age").innerText=p.age;
+// page animation
+window.onload = () => {
+let page = document.getElementById("page");
+page.style.opacity = "1";
+page.style.transform = "scale(1)";
+};
 
-function go(){
-window.location.href="contact.html";
+let pet = JSON.parse(localStorage.getItem("selectedPet"));
+
+if(pet){
+document.getElementById("petImage").src = pet.image;
+document.getElementById("petName").innerText = "🐶 " + pet.name;
+document.getElementById("petBreed").innerText = "Breed: " + pet.breed;
+document.getElementById("petAge").innerText = "Age: " + pet.age;
+
+document.getElementById("adoptBtn").onclick = function(){
+window.location.href = "contact.html";
+};
 }
+
 </script>
 
 </body>
