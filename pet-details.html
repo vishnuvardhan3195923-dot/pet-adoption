@@ -6,6 +6,12 @@
 </head>
 <body>
 
+<div id="page" style="
+opacity:0;
+transform:scale(0.96);
+transition:all 0.4s ease;
+">
+
 <nav>
 <h2>Pet Adoption 🐾</h2>
 
@@ -73,6 +79,30 @@ document.getElementById("adoptBtn").onclick = function(){
 window.location.href = "contact.html";
 };
 }
+</script>
+
+</div>
+
+<script>
+let pet = JSON.parse(localStorage.getItem("selectedPet"));
+
+if(pet){
+document.getElementById("petImage").src = pet.image;
+document.getElementById("petName").innerText = "🐶 " + pet.name;
+document.getElementById("petBreed").innerText = "Breed: " + pet.breed;
+document.getElementById("petAge").innerText = "Age: " + pet.age;
+
+document.getElementById("adoptBtn").onclick = function(){
+window.location.href = "contact.html";
+};
+}
+
+/* 🔥 APPLE-LIKE ENTRY */
+window.onload = function(){
+let page = document.getElementById("page");
+page.style.opacity = "1";
+page.style.transform = "scale(1)";
+};
 </script>
 
 </body>
