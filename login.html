@@ -12,11 +12,23 @@
 
 <h1>Login</h1>
 
-<form>
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
+<form id="loginForm">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" placeholder="Password" required>
     <button>Login</button>
 </form>
+
+<script>
+document.getElementById("loginForm").onsubmit = function(e){
+    e.preventDefault();
+
+    let user = document.getElementById("username").value;
+    localStorage.setItem("user", user);
+
+    alert("Login successful!");
+    window.location.href = "index.html";
+};
+</script>
 
 </body>
 </html>
