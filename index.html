@@ -17,7 +17,12 @@
 
 <div class="user-area">
 <span id="userDisplay"></span>
-<button class="logout-btn" onclick="logout()">Logout</button>
+
+<a href="login.html">
+<button class="login-btn" id="loginBtn">Login</button>
+</a>
+
+<button class="logout-btn" id="logoutBtn" onclick="logout()">Logout</button>
 </div>
 </nav>
 
@@ -32,8 +37,10 @@ let user = localStorage.getItem("user");
 
 if(user){
 document.getElementById("userDisplay").innerText = "Hello, " + user;
+document.getElementById("loginBtn").style.display = "none";
 } else {
-document.getElementById("userDisplay").innerText = "Guest";
+document.getElementById("userDisplay").innerText = "";
+document.getElementById("logoutBtn").style.display = "none";
 }
 
 function logout(){
