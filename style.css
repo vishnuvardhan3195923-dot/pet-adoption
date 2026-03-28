@@ -86,9 +86,8 @@ button:hover {
 }
 
 /* HERO */
-.hero {
-    text-align: center;
-    padding: 140px 20px;
+..hero {
+    padding-top: 200px;
 }
 
 .hero h1 {
