@@ -1,47 +1,37 @@
-<script>
-fetch("pets.json")
-.then(res => res.json())
-.then(pets => {
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pets</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-let container = document.getElementById("container");
+<nav>
+<h2>Pet Adoption 🐾</h2>
 
-pets.forEach(pet => {
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="pets.html">Pets 🐶</a></li>
+<li><a href="orders.html">Requests 📦</a></li>
+</ul>
 
-let card = document.createElement("div");
-card.className = "card";
-
-card.innerHTML = `
-<img src="${pet.image}">
-<div class="card-content">
-<h3>${pet.name}</h3>
-<p>${pet.breed}</p>
+<div class="user-area">
+<span id="userDisplay"></span>
 </div>
-`;
+</nav>
 
-card.onclick = function(){
-goToDetails(card, pet);
-};
+<h1>🐾 Available Pets</h1>
 
-container.appendChild(card);
+<div id="pets-container" class="grid"></div>
 
-});
+<script src="script.js"></script>
 
-});
-
-// animation function (same as before)
-function goToDetails(card, pet){
-
-localStorage.setItem("selectedPet", JSON.stringify(pet));
-
-card.style.transition = "all 0.4s ease";
-card.style.transform = "scale(1.1)";
-card.style.boxShadow = "0 25px 60px rgba(0,0,0,0.2)";
-
-document.body.style.transition = "0.4s";
-document.body.style.opacity = "0.6";
-
-setTimeout(()=>{
-window.location.href = "pet-details.html";
-},400);
+<script>
+let user = localStorage.getItem("user");
+if(user){
+document.getElementById("userDisplay").innerText = "👋 Hello, " + user;
 }
 </script>
+
+</body>
+</html>
