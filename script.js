@@ -16,6 +16,11 @@ fetch('pets.json')
             </div>
         `;
 
+        card.onclick = () => {
+            localStorage.setItem("selectedPet", JSON.stringify(pet));
+            window.location.href = "pet-details.html";
+        };
+
         container.appendChild(card);
     });
 });
