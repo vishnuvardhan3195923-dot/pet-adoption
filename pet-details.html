@@ -4,6 +4,7 @@
 <title>Pet Details</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div id="page" style="
@@ -22,39 +23,29 @@ transition:all 0.4s ease;
 </ul>
 </nav>
 
-<!-- CARD CONTAINER -->
-<div style="
-max-width:600px;
-margin:50px auto;
-">
+<!-- CARD -->
+<div style="max-width:600px; margin:50px auto;">
 
 <div style="
 background:white;
 border-radius:18px;
 overflow:hidden;
 box-shadow:0 12px 30px rgba(0,0,0,0.06);
-transition:0.3s;
 ">
 
-<!-- IMAGE (FULL VISIBLE NOW) -->
 <img id="petImage" style="
 width:100%;
-height:auto;
 max-height:300px;
 object-fit:contain;
 background:#f1f5f9;
 ">
 
-<!-- CONTENT -->
-<div style="
-padding:22px;
-text-align:center;
-">
+<div style="padding:22px; text-align:center;">
 
-<h2 id="petName" style="font-weight:600;"></h2>
+<h2 id="petName"></h2>
 
-<p id="petBreed" style="color:#64748b; margin-top:5px;"></p>
-<p id="petAge" style="color:#64748b;"></p>
+<p id="petBreed"></p>
+<p id="petAge"></p>
 
 <button id="adoptBtn" style="margin-top:15px;">
 Adopt 💛
@@ -66,24 +57,11 @@ Adopt 💛
 
 </div>
 
-<script>
-let pet = JSON.parse(localStorage.getItem("selectedPet"));
-
-if(pet){
-document.getElementById("petImage").src = pet.image;
-document.getElementById("petName").innerText = "🐶 " + pet.name;
-document.getElementById("petBreed").innerText = "Breed: " + pet.breed;
-document.getElementById("petAge").innerText = "Age: " + pet.age;
-
-document.getElementById("adoptBtn").onclick = function(){
-window.location.href = "contact.html";
-};
-}
-</script>
-
-</div>
+</div> <!-- ✅ CLOSE PAGE PROPERLY -->
 
 <script>
+
+/* LOAD PET */
 let pet = JSON.parse(localStorage.getItem("selectedPet"));
 
 if(pet){
@@ -97,12 +75,13 @@ window.location.href = "contact.html";
 };
 }
 
-/* 🔥 APPLE-LIKE ENTRY */
+/* PAGE ANIMATION */
 window.onload = function(){
 let page = document.getElementById("page");
 page.style.opacity = "1";
 page.style.transform = "scale(1)";
 };
+
 </script>
 
 </body>
