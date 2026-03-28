@@ -8,12 +8,30 @@
 
 <nav>
 <h2>Pet Adoption 🐾</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="pets.html">Pets 🐶</a></li>
+<li><a href="orders.html">Requests 📦</a></li>
+</ul>
+
+<div class="user-area">
+<span id="userDisplay"></span>
+</div>
 </nav>
 
-<h1>Available Pets</h1>
+<h1>🐾 Available Pets</h1>
 
 <div id="pets-container" class="grid"></div>
 
 <script src="script.js"></script>
+
+<script>
+let user = localStorage.getItem("user");
+if(user){
+document.getElementById("userDisplay").innerText = "👋 Hello, " + user;
+}
+</script>
+
 </body>
 </html>
