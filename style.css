@@ -173,3 +173,40 @@ input:focus, textarea:focus {
     border: 1px solid #f97316;
     box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
 }
+
+/* ===== BACKGROUND IMAGE + GRADIENT ===== */
+
+body {
+margin: 0;
+
+background:
+linear-gradient(
+rgba(255,255,255,0.75),
+rgba(255,255,255,0.85)
+),
+url("bg.jpg");
+
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+h1 {
+font-size: 3rem;
+font-weight: 700;
+color: #1e293b;
+}
+
+button {
+background: linear-gradient(135deg, #ff7a18, #ffb347);
+border: none;
+border-radius: 999px;
+padding: 12px 28px;
+color: white;
+font-weight: 600;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover {
+transform: translateY(-2px);
+}
