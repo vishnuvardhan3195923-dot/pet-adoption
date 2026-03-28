@@ -1,49 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Pets</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<nav>
-<h2>Pet Adoption 🐾</h2>
-</nav>
-
-<h1 style="text-align:center;">Available Pets 🐾</h1>
-
-<div id="container" class="grid"></div>
-
 <script>
-let pets = [
-{name:"Bruno", breed:"Labrador", age:"2 years", image:"dog1.jpg"},
-{name:"Max", breed:"Husky", age:"1.5 years", image:"dog2.jpg"},
-{name:"Luna", breed:"Cat", age:"1 year", image:"cat1.jpg"}
-];
+fetch("pets.json")
+.then(res => res.json())
+.then(pets => {
 
 let container = document.getElementById("container");
 
-pets.forEach(p=>{
-let card=document.createElement("div");
-card.className="card";
+pets.forEach(pet => {
 
-card.innerHTML=`
-<img src="${p.image}">
+let card = document.createElement("div");
+card.className = "card";
+
+card.innerHTML = `
+<img src="${pet.image}">
 <div class="card-content">
-<h3>${p.name}</h3>
-<p>${p.breed}</p>
+<h3>${pet.name}</h3>
+<p>${pet.breed}</p>
 </div>
 `;
 
-card.onclick=()=>{
-localStorage.setItem("selectedPet",JSON.stringify(p));
-window.location.href="pet-details.html";
+card.onclick = function(){
+goToDetails(card, pet);
 };
 
 container.appendChild(card);
-});
-</script>
 
-</body>
-</html>
+});
+
+});
+
+// animation function (same as before)
+function goToDetails(card, pet){
+
+localStorage.setItem("selectedPet", JSON.stringify(pet));
+
+card.style.transition = "all 0.4s ease";
+card.style.transform = "scale(1.1)";
+card.style.boxShadow = "0 25px 60px rgba(0,0,0,0.2)";
+
+document.body.style.transition = "0.4s";
+document.body.style.opacity = "0.6";
+
+setTimeout(()=>{
+window.location.href = "pet-details.html";
+},400);
+}
+</script>
