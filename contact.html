@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact</title>
-    <link rel="stylesheet" href="style.css">
+<title>Contact</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
-    <h2>Pet Adoption 🐾</h2>
-</nav>
+<nav><h2>Pet Adoption 🐾</h2></nav>
 
 <h1>Adopt Pet</h1>
 
-<form id="contactForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <input type="text" id="pet" placeholder="Pet Name" readonly>
-    <textarea placeholder="Message"></textarea>
-    <button type="submit">Send Request</button>
+<form id="form">
+<input id="name" placeholder="Name" required>
+<input id="email" placeholder="Email" required>
+<input id="pet" readonly>
+<button>Send Request</button>
 </form>
 
 <script>
 let pet = JSON.parse(localStorage.getItem("selectedPet"));
 if(pet){
-    document.getElementById("pet").value = pet.name;
+document.getElementById("pet").value = pet.name;
 }
 
-document.getElementById("contactForm").onsubmit = function(e){
-    e.preventDefault();
+document.getElementById("form").onsubmit = function(e){
+e.preventDefault();
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let petName = document.getElementById("pet").value;
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let petName = document.getElementById("pet").value;
 
-    let orders = JSON.parse(localStorage.getItem("orders")) || [];
-    orders.push({name, email, petName});
-    localStorage.setItem("orders", JSON.stringify(orders));
+// save history
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+orders.push({name,email,petName});
+localStorage.setItem("orders", JSON.stringify(orders));
 
-    alert("Opening mail app 🚀");
+// open mail
+window.location.href =
+`mailto:vishnuvardhan3195923@gmail.com?subject=Pet Adoption&body=Pet: ${petName}%0AName: ${name}%0AEmail: ${email}`;
 
-   window.location.href = `mailto:goutham123@gmail.com?subject=Pet Adoption Request&body=Hello,%0A%0AI would like to adopt:%0APet: ${petName}%0AName: ${name}%0AEmail: ${email}%0A%0AThank you`;
-
-    setTimeout(()=>{
-        window.location.href = "success.html";
-    },1000);
-};
+// success page
+setTimeout(()=>{window.location.href="success.html"},1000);
+}
 </script>
 
 </body>
