@@ -14,6 +14,7 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="login.html">Login</a></li>
     </ul>
+    <span id="userDisplay"></span>
 </nav>
 
 <section class="hero">
@@ -21,6 +22,13 @@
     <p>Adopt pets and give them a loving home</p>
     <a href="pets.html"><button>Explore Pets</button></a>
 </section>
+
+<script>
+let user = localStorage.getItem("user");
+if(user){
+    document.getElementById("userDisplay").innerText = "Hi, " + user;
+}
+</script>
 
 </body>
 </html>
