@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Adoptions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <h2>Pet Adoption 🐾</h2>
+</nav>
+
+<h1>My Adoption Requests</h1>
+
+<div id="orders" class="grid"></div>
+
+<script>
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+let container = document.getElementById("orders");
+
+orders.forEach(order => {
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    card.innerHTML = `
+        <div class="card-content">
+            <h3>${order.petName}</h3>
+            <p>Name: ${order.name}</p>
+            <p>Email: ${order.email}</p>
+        </div>
+    `;
+
+    container.appendChild(card);
+});
+</script>
+
+</body>
+</html>
