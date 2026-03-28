@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="page" style="opacity:0; transform:scale(0.96); transition:0.4s;">
+  
 
 <nav>
 <h2>Pet Adoption 🐾</h2>
@@ -32,6 +34,14 @@ if(user){
 document.getElementById("userDisplay").innerText = "👋 Hello, " + user;
 }
 </script>
+</div>
 
+<script>
+window.onload = function(){
+let page = document.getElementById("page");
+page.style.opacity = "1";
+page.style.transform = "scale(1)";
+};
+</script>
 </body>
 </html>
