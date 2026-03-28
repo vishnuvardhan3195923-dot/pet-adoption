@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pet Adoption</title>
-    <link rel="stylesheet" href="style.css">
+<title>Pet Adoption</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
-    <h2>Pet Adoption 🐾</h2>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="pets.html">Pets</a></li>
-        <li><a href="orders.html">My Requests</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-    </ul>
-    <span id="userDisplay"></span>
+<h2>Pet Adoption 🐾</h2>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="pets.html">Pets</a></li>
+<li><a href="orders.html">My Requests</a></li>
+<li><a href="login.html">Login</a></li>
+</ul>
 </nav>
 
 <section class="hero">
-    <h1>Find Your New Best Friend 🐶</h1>
-    <p>Adopt pets and give them a loving home</p>
-    <a href="pets.html"><button>Explore Pets</button></a>
+<h1>Find Your New Best Friend 🐶</h1>
+<p>Adopt pets and give them a loving home</p>
+<a href="pets.html"><button>Explore Pets</button></a>
 </section>
-
-<script>
-let user = localStorage.getItem("user");
-if(user){
-    document.getElementById("userDisplay").innerText = "Hi, " + user;
-}
-</script>
 
 </body>
 </html>
