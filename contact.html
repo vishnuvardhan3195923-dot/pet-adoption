@@ -10,14 +10,32 @@
     <h2>Pet Adoption 🐾</h2>
 </nav>
 
-<h1>Contact Us</h1>
+<h1>Adopt Pet</h1>
 
-<form>
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email">
+<form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="text" id="pet" placeholder="Pet Name" readonly>
     <textarea placeholder="Message"></textarea>
-    <button>Send</button>
+    <button type="submit">Send Request</button>
 </form>
+
+<script>
+let pet = JSON.parse(localStorage.getItem("selectedPet"));
+if(pet){
+    document.getElementById("pet").value = pet.name;
+}
+
+document.getElementById("contactForm").onsubmit = function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let petName = document.getElementById("pet").value;
+
+    window.location.href = `mailto:yourmail@gmail.com?subject=Pet Adoption&body=Name: ${name}%0AEmail: ${email}%0APet: ${petName}`;
+};
+</script>
 
 </body>
 </html>
