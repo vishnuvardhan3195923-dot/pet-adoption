@@ -1,212 +1,125 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
-    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     background: #f5f7fb;
     color: #1e293b;
 }
-
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 18px 70px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
 }
-
 nav h2 {
     font-weight: 600;
     color: #f97316;
     letter-spacing: 0.5px;
 }
-
 nav ul {
     display: flex;
     gap: 35px;
     list-style: none;
 }
-
 nav a {
     text-decoration: none;
     color: #475569;
     font-size: 0.95rem;
     transition: 0.3s;
 }
-
 nav a:hover {
     color: #f97316;
 }
-
-/* ===== USER AREA ===== */
+/* USER AREA */
 .user-area {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
 #userDisplay {
     font-size: 0.95rem;
     color: #334155;
 }
-
-/* ===== BUTTONS ===== */
+/* BUTTONS */
 button {
-    padding: 12px 28px;
+    padding: 10px 22px;
     border-radius: 999px;
     border: none;
     background: linear-gradient(135deg, #f97316, #fb923c);
     color: white;
     font-size: 0.95rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
     cursor: pointer;
     transition: 0.3s;
 }
-
 button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(249, 115, 22, 0.35);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(249,115,22,0.3);
 }
-
 .login-btn {
     background: transparent;
-    border: 1.5px solid #f97316;
+    border: 1px solid #f97316;
     color: #f97316;
 }
-
-.login-btn:hover {
-    background: rgba(249, 115, 22, 0.06);
-    box-shadow: none;
-}
-
 .logout-btn {
     background: #ef4444;
 }
-
-/* ===== HERO ===== */
+/* HERO */
 .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    background:
-        url("bg.jpg") center center / cover no-repeat fixed;
-    display: flex;
-    align-items: flex-end;
-    padding: 0 70px 70px 70px;
+    text-align: center;
+    padding: 120px 20px;
 }
-
-/* Dark gradient at the bottom so text is readable over the image */
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 30%,
-        rgba(15, 10, 5, 0.65) 100%
-    );
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 560px;
-}
-
-.hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.4rem;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.15;
-    margin-bottom: 14px;
-    text-align: left;
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.82);
-    margin-bottom: 28px;
-    font-weight: 400;
-    letter-spacing: 0.2px;
-}
-
-.hero-content button {
-    padding: 14px 34px;
-    font-size: 1rem;
+.hero h1 {
+    font-size: 3.2rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #f97316, #fb923c);
-    border-radius: 999px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4);
+    margin-bottom: 12px;
 }
-
-.hero-content button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 32px rgba(249, 115, 22, 0.45);
+.hero p {
+    font-size: 1.05rem;
+    color: #64748b;
+    margin-bottom: 25px;
 }
-
-/* ===== GRID ===== */
+/* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
     gap: 35px;
     padding: 60px 80px;
 }
-
-/* ===== CARD ===== */
+/* CARD */
 .card {
     background: white;
     border-radius: 20px;
     overflow: hidden;
     transition: 0.35s;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
-
 .card img {
     width: 100%;
     height: 230px;
     object-fit: cover;
 }
-
 .card-content {
     padding: 18px;
 }
-
 .card h3 {
     font-weight: 600;
     margin-bottom: 5px;
 }
-
 .card p {
     color: #64748b;
     font-size: 0.9rem;
 }
-
 .card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
-
-/* ===== FORM ===== */
+/* FORM */
 form {
     max-width: 420px;
     margin: 80px auto;
@@ -214,28 +127,51 @@ form {
     flex-direction: column;
     gap: 18px;
 }
-
 input, textarea {
     padding: 12px;
     border-radius: 10px;
     border: 1px solid #e2e8f0;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    background: white;
-    color: #1e293b;
+    font-family: inherit;
 }
-
-input:focus, textarea:focus {
-    outline: none;
-    border: 1px solid #f97316;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
-}
-
-/* ===== PAGE HEADINGS ===== */
+/* HEADINGS */
 h1 {
     text-align: center;
     margin-top: 50px;
-    font-weight: 700;
-    font-size: 2.2rem;
-    color: #1e293b;
+    font-weight: 600;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid #f97316;
+    box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+}
+/* ===== BACKGROUND IMAGE + GRADIENT ===== */
+body {
+margin: 0;
+background:
+linear-gradient(
+rgba(0,0,0,0.5),
+rgba(255,255,255,0.85)
+),
+url("bg.jpg");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+h1 {
+font-size: 3rem;
+font-weight: 700;
+color: #1e293b;
+}
+button {
+background: linear-gradient(135deg, #ff7a18, #ffb347);
+border: none;
+border-radius: 999px;
+padding: 12px 28px;
+color: white;
+font-weight: 600;
+cursor: pointer;
+transition: 0.3s;
+}
+button:hover {
+transform: translateY(-2px);
 }
