@@ -94,39 +94,57 @@ button:hover {
 .logout-btn {
     background: #ef4444;
 }
-
-/* HERO SECTION (FIXED) */
+/* HERO SECTION */
 .hero {
     height: 90vh;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* pushes content DOWN */
+    justify-content: flex-end;
     align-items: center;
 
     text-align: center;
-    padding-bottom: 90px; /* adjust if needed */
+    padding-bottom: 100px;
 }
 
-/* HERO TEXT */
+/* 🔥 PREMIUM GRADIENT HEADING */
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 700;
-    color: white;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+
+    background: linear-gradient(135deg, #ffffff, #facc15, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    letter-spacing: -0.5px;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,0.25);
 }
 
+/* SUBTEXT (soft glass feel) */
 .hero p {
     font-size: 1.1rem;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 20px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 25px;
+
+    backdrop-filter: blur(4px);
 }
 
-/* HERO BUTTON */
+/* BUTTON (slightly more premium) */
 .hero button {
     background: linear-gradient(135deg, #ff7a18, #ffb347);
-    padding: 12px 28px;
+    padding: 13px 30px;
     font-size: 1rem;
+    border-radius: 999px;
+
+    box-shadow: 0 10px 30px rgba(255,122,24,0.4);
+}
+
+.hero button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
 }
 
 /* GRID */
