@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 /* BODY */
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     background: #f5f7fb;
     color: #1e293b;
 }
-
 /* NAVBAR */
 nav {
     display: flex;
@@ -22,40 +19,33 @@ nav {
     background: rgba(255,255,255,0.85);
     backdrop-filter: blur(10px);
 }
-
 nav h2 {
     font-weight: 600;
     color: #f97316;
 }
-
 nav ul {
     display: flex;
     gap: 35px;
     list-style: none;
 }
-
 nav a {
     text-decoration: none;
     color: #475569;
     font-size: 0.95rem;
     transition: 0.3s;
 }
-
 nav a:hover {
     color: #f97316;
 }
-
-/* USER AREA */
+/* USER */
 .user-area {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
 #userDisplay {
     font-size: 0.95rem;
 }
-
 /* BUTTON */
 button {
     padding: 10px 22px;
@@ -66,20 +56,18 @@ button {
     cursor: pointer;
     transition: 0.3s;
 }
-
 button:hover {
     transform: scale(1.05);
 }
-
-/* HERO (ONLY HOME PAGE) */
+/* HERO (ONLY HOME PAGE USES THIS) */
 .hero {
     height: 90vh;
     background:
-        linear-gradient(
-            rgba(0,0,0,0.5),
-            rgba(255,255,255,0.85)
-        ),
-        url("bg.jpg");
+    linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(255,255,255,0.85)
+    ),
+    url("bg.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -89,7 +77,6 @@ button:hover {
     text-align: center;
     padding-bottom: 100px;
 }
-
 /* HERO TEXT */
 .hero h1 {
     font-size: 3rem;
@@ -99,13 +86,11 @@ button:hover {
     -webkit-text-fill-color: transparent;
     text-shadow: 0 5px 20px rgba(0,0,0,0.25);
 }
-
 .hero p {
     font-size: 1.1rem;
     color: rgba(255,255,255,0.8);
     margin: 10px 0 20px;
 }
-
 /* GRID */
 .grid {
     display: grid;
@@ -113,7 +98,6 @@ button:hover {
     gap: 30px;
     padding: 50px 80px;
 }
-
 /* CARD */
 .card {
     background: white;
@@ -123,39 +107,35 @@ button:hover {
     flex-direction: column;
     transition: 0.3s;
 }
-
+/* FIXED IMAGE */
 .card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
-
+/* CARD CONTENT */
 .card-content {
     padding: 15px;
 }
-
 .card h3 {
     font-size: 1.1rem;
     margin-bottom: 5px;
 }
-
 .card p {
     font-size: 0.9rem;
     color: #64748b;
 }
-
+/* HOVER */
 .card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
-
 /* HEADING */
 h1 {
     text-align: center;
     margin-top: 40px;
     font-weight: 600;
 }
-
 /* FORM */
 form {
     max-width: 420px;
@@ -164,101 +144,46 @@ form {
     flex-direction: column;
     gap: 18px;
 }
-
 input, textarea {
     padding: 12px;
     border-radius: 10px;
     border: 1px solid #e2e8f0;
 }
-
 input:focus, textarea:focus {
     outline: none;
     border: 1px solid #f97316;
 }
-
-/* ================================================
-   MOBILE STYLES — max 768px
-   Nav becomes 3 columns:
-   [Logo + Home] | [Pets + Requests] | [Login]
-   ================================================ */
-@media (max-width: 768px) {
-
-    /* 3-column grid navbar */
-    nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
-        padding: 12px 16px;
-        gap: 0;
-    }
-
-    /* Column 1: Logo stacked above Home link */
-    nav h2 {
-        font-size: 0.95rem;
-        line-height: 1.4;
-    }
-
-    /* Column 2: Pets + Requests stacked, centered */
-    nav ul {
-        flex-direction: column;
-        gap: 4px;
-        align-items: center;
-        justify-content: center;
-    }
-
-    nav ul li a {
-        font-size: 0.82rem;
-    }
-
-    /* Column 3: Login button on the right */
-    .user-area {
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 4px;
-    }
-
-    /* Compact button — not full width */
-    button {
-        padding: 8px 14px;
-        font-size: 0.8rem;
-        min-height: 36px;
-        width: auto;
-    }
-
-    #userDisplay {
-        font-size: 0.72rem;
-        text-align: right;
-    }
-
-    /* Hero */
-    .hero {
-        height: 85vh;
-        padding: 20px 16px 60px;
-    }
-
-    .hero h1 {
-        font-size: 1.75rem;
-    }
-
-    .hero p {
-        font-size: 0.95rem;
-    }
-
-    /* Single column cards */
-    .grid {
-        grid-template-columns: 1fr;
-        padding: 20px 16px;
-        gap: 18px;
-    }
-
-    /* Form breathing room */
-    form {
-        margin: 40px 16px;
-    }
-
-    /* Heading top spacing */
-    h1 {
-        margin-top: 24px;
-        font-size: 1.4rem;
-    }
+/* ---- Mobile Styles (applies when screen is 600px wide or less) ---- */
+@media (max-width: 600px) {
+  /* Stack the navbar vertically */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+  /* Stack nav links vertically too */
+  nav ul {
+    flex-direction: column;
+    padding: 0;
+    gap: 8px;
+  }
+  /* Make buttons bigger for touch */
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    min-height: 44px;
+    width: 100%;
+  }
+  /* Scale down the hero heading */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  /* Add breathing room on sides */
+  .hero {
+    padding: 30px 16px;
+  }
 }
