@@ -45,7 +45,7 @@ nav a:hover {
     color: #f97316;
 }
 
-/* USER */
+/* USER AREA */
 .user-area {
     display: flex;
     align-items: center;
@@ -71,25 +71,21 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* HERO (ONLY HOME PAGE USES THIS) */
+/* HERO (ONLY HOME PAGE) */
 .hero {
     height: 90vh;
-
     background:
-    linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(255,255,255,0.85)
-    ),
-    url("bg.jpg");
-
+        linear-gradient(
+            rgba(0,0,0,0.5),
+            rgba(255,255,255,0.85)
+        ),
+        url("bg.jpg");
     background-size: cover;
     background-position: center;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-
     text-align: center;
     padding-bottom: 100px;
 }
@@ -98,11 +94,9 @@ button:hover {
 .hero h1 {
     font-size: 3rem;
     font-weight: 700;
-
     background: linear-gradient(135deg, #ffffff, #facc15, #f97316);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
     text-shadow: 0 5px 20px rgba(0,0,0,0.25);
 }
 
@@ -125,21 +119,17 @@ button:hover {
     background: white;
     border-radius: 18px;
     overflow: hidden;
-
     display: flex;
     flex-direction: column;
-
     transition: 0.3s;
 }
 
-/* FIXED IMAGE */
 .card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-/* CARD CONTENT */
 .card-content {
     padding: 15px;
 }
@@ -154,7 +144,6 @@ button:hover {
     color: #64748b;
 }
 
-/* HOVER */
 .card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
@@ -187,43 +176,89 @@ input:focus, textarea:focus {
     border: 1px solid #f97316;
 }
 
-/* ---- Mobile Styles (applies when screen is 600px wide or less) ---- */
-@media (max-width: 600px) {
+/* ================================================
+   MOBILE STYLES — max 768px
+   Nav becomes 3 columns:
+   [Logo + Home] | [Pets + Requests] | [Login]
+   ================================================ */
+@media (max-width: 768px) {
 
-  /* Stack the navbar vertically */
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 12px 16px;
-  }
+    /* 3-column grid navbar */
+    nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 0;
+    }
 
-  /* Stack nav links vertically too */
-  nav ul {
-    flex-direction: column;
-    padding: 0;
-    gap: 8px;
-  }
+    /* Column 1: Logo stacked above Home link */
+    nav h2 {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
 
-  /* Make buttons bigger for touch */
-  button {
-    padding: 12px 20px;
-    font-size: 16px;
-    min-height: 44px;
-    width: 100%;
-  }
+    /* Column 2: Pets + Requests stacked, centered */
+    nav ul {
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+        justify-content: center;
+    }
 
-  /* Scale down the hero heading */
-  .hero h1 {
-    font-size: 1.8rem;
-  }
+    nav ul li a {
+        font-size: 0.82rem;
+    }
 
-  .hero p {
-    font-size: 1rem;
-  }
+    /* Column 3: Login button on the right */
+    .user-area {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+    }
 
-  /* Add breathing room on sides */
-  .hero {
-    padding: 30px 16px;
-  }
+    /* Compact button — not full width */
+    button {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        min-height: 36px;
+        width: auto;
+    }
+
+    #userDisplay {
+        font-size: 0.72rem;
+        text-align: right;
+    }
+
+    /* Hero */
+    .hero {
+        height: 85vh;
+        padding: 20px 16px 60px;
+    }
+
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    /* Single column cards */
+    .grid {
+        grid-template-columns: 1fr;
+        padding: 20px 16px;
+        gap: 18px;
+    }
+
+    /* Form breathing room */
+    form {
+        margin: 40px 16px;
+    }
+
+    /* Heading top spacing */
+    h1 {
+        margin-top: 24px;
+        font-size: 1.4rem;
+    }
 }
