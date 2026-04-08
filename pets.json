@@ -47,4 +47,12 @@
     "age": "2 years",
     "image": "dog3.jpg"
   }
+
+   {
+    "name": "ham",
+    "breed": "penz",
+    "age": "1 years",
+    "image": "ddog4.jpg"
+  }
+  
 ]
