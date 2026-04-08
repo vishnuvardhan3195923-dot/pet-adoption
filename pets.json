@@ -46,13 +46,6 @@
     "breed": "German Shepherd",
     "age": "2 years",
     "image": "dog3.jpg"
-  },
-
-  {
-    "name": "raven",
-    "breed": "lancer",
-    "age": "1 years",
-    "image": "dog5.jpg"
   }
   
 ]
